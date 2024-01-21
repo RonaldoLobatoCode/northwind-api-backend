@@ -19,9 +19,14 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ProductID")
 	private int productId;
+	@Column(name = "Productname")
 	private String productName;
+	@Column(name = "SupplieriD")
 	private int supplierId;
+	@Column(name = "CategoryiD")
 	private int categoryId;
 	private String unit;
+	@Column(name = "price")
 	private BigDecimal price;
 }
+
