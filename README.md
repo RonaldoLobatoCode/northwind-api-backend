@@ -8,7 +8,6 @@
 
 ##  Requisitos Previos
 - Spring Boot
-- Spring Data JPA
 - Mysql 
 - Postman (para pruebas y exploración de la API)
 
