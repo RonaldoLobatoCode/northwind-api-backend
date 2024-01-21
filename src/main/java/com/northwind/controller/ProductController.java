@@ -23,40 +23,40 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @RequestMapping(path = "products")
 public class ProductController {
-	
+
 	ProductRepository productRepository;
-	
+
 	@GetMapping
-	public List<Product> findAll(){
+	public List<Product> findAll() {
 		return productRepository.findAll();
 	}
-	
+
 	@GetMapping("{productId}")
-	public ResponseEntity<Product> findByid(@PathVariable int productId){
+	public ResponseEntity<Product> findByid(@PathVariable int productId) {
 		return ResponseEntity.of(productRepository.findById(productId));
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<Integer> register(@RequestBody Product product) {
-	    Product savedProduct = productRepository.save(product);
-	    return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct.getProductId());
+		Product savedProduct = productRepository.save(product);
+		return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct.getProductId());
 	}
-	
+
 	@PutMapping("{productId}")
-	public ResponseEntity<Product> update(@PathVariable int productId, @RequestBody Product updatedProduct){
+	public ResponseEntity<Product> update(@PathVariable int productId, @RequestBody Product updatedProduct) {
 		Optional<Product> productOptional = productRepository.findById(productId);
-		if(productOptional.isPresent()) {
-			Product existingProduct  = productOptional.get();
+		if (productOptional.isPresent()) {
+			Product existingProduct = productOptional.get();
 			existingProduct.setProductName(updatedProduct.getProductName());
 			existingProduct.setSupplierId(updatedProduct.getSupplierId());
-	        existingProduct.setCategoryId(updatedProduct.getCategoryId());
-	        existingProduct.setUnit(updatedProduct.getUnit());
-	        existingProduct.setPrice(updatedProduct.getPrice());
-			
-	        Product updateProductEntity = productRepository.save(existingProduct);
-	        
-	        return ResponseEntity.ok(updateProductEntity);
-		}else {
+			existingProduct.setCategoryId(updatedProduct.getCategoryId());
+			existingProduct.setUnit(updatedProduct.getUnit());
+			existingProduct.setPrice(updatedProduct.getPrice());
+
+			Product updateProductEntity = productRepository.save(existingProduct);
+
+			return ResponseEntity.ok(updateProductEntity);
+		} else {
 			return ResponseEntity.notFound().build();
 		}
 	}
@@ -66,17 +66,6 @@ public class ProductController {
 		productRepository.deleteById(productId);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
