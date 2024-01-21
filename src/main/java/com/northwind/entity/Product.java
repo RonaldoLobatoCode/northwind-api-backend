@@ -16,17 +16,22 @@ import lombok.Data;
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ProductID")
-	private int productId;
-	@Column(name = "Productname")
-	private String productName;
-	@Column(name = "SupplieriD")
-	private int supplierId;
-	@Column(name = "CategoryiD")
-	private int categoryId;
-	private String unit;
-	@Column(name = "price")
-	private BigDecimal price;
-}
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "productid")
+    private int productId;
 
+    @Column(name = "productname")
+    private String productName;
+
+    @Column(name = "supplierid")
+    private int supplierId;
+
+    @Column(name = "categoryid")
+    private int categoryId;
+
+    @Column(name = "unit")
+    private String unit;
+
+    @Column(name = "price")
+    private BigDecimal price;
+}
