@@ -1,8 +1,12 @@
 package com.northwind.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.northwind.entity.Supplier;
 import com.northwind.repository.SupplierRepository;
 
 import lombok.AllArgsConstructor;
@@ -13,4 +17,9 @@ import lombok.AllArgsConstructor;
 public class SupplierController {
 
 	SupplierRepository supplierRepository;
+	
+	@GetMapping
+	public List<Supplier> findAll(){
+		return supplierRepository.findAll();
+	}
 }
