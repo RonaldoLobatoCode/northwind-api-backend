@@ -25,4 +25,8 @@ public class CustomerController {
 		return customerRepository.findAll();
 	}
 	
+	@GetMapping("{customerId}")
+	public ResponseEntity<Customer> findById(@PathVariable int customerId){
+		return ResponseEntity.of(customerRepository.findById(customerId));
+	}
 }
