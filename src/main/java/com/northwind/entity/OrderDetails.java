@@ -6,14 +6,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
-@Table(name = "OrderDetails")
+@Table(name = "Orderdetails")
+@Data
 public class OrderDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ordedetailid")
+	@Column(name = "orderdetailid")
 	private int orderDetailId;
 	
 	@Column(name = "orderid")
