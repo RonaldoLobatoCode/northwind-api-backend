@@ -12,9 +12,9 @@
 - Postman (para pruebas y exploración de la API)
 
 ## Uso de Postman
-Se incluye una colección de Postman en el directorio `postman` que contiene ejemplos de solicitudes para probar las diferentes rutas de la API. Sigue estos pasos para empezar:
+Se incluye una colección de Postman en el directorio `src/main/resources/postman` que contiene ejemplos de solicitudes para probar las diferentes rutas de la API.
 
-1. Importa la colección de Postman ubicada en `postman/northwind-api.postman_collection.json`.
+1. Importa la colección de Postman ubicada en `src/main/resources/postman/northwind-api.postman_collection.json`.
 2. Configura las variables de entorno en Postman según sea necesario 
 3. Ejecuta las solicitudes de la colección para interactuar con la API y probar sus funcionalidades.
 
