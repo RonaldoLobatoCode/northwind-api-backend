@@ -22,5 +22,5 @@ public class Categorie {
 	private String categoryName;
 	
 	@Column(name = "description")
-	private String category;
+	private String description;
 }

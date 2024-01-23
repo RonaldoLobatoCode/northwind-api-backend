@@ -1,12 +1,14 @@
 package com.northwind.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,6 +39,21 @@ public class CategorieController {
 	public ResponseEntity<Integer> register(@RequestBody Categorie categorie){
 		Categorie save = categorieRepository.save(categorie);
 		return ResponseEntity.status(HttpStatus.CREATED).body(save.getCategoryId());
+	}
+	
+	@PutMapping("{categoryId}")
+	public ResponseEntity<Categorie> update(@PathVariable int categoryId, @RequestBody Categorie updatedCategory){
+		Optional<Categorie> optionalCategorie = categorieRepository.findById(categoryId);
+		if(optionalCategorie.isPresent()) {
+			Categorie existingCategorie = optionalCategorie.get();
+			existingCategorie.setCategoryName(updatedCategory.getCategoryName());
+			existingCategorie.setDescription(updatedCategory.getDescription());
+			
+			Categorie updateCategorieEntity = categorieRepository.save(existingCategorie);
+			return ResponseEntity.ok(updateCategorieEntity);
+		}else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 }
 
