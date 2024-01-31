@@ -10,6 +10,7 @@
 
 # Descripción
 <p>El objetivo de este proyecto es proporcionar una interfaz de programación de aplicaciones (API) RESTful para realizar operaciones CRUD en la base de datos Northwind. La aplicación se construye con Spring Boot y utiliza Spring Data JPA para la capa de acceso a datos.</p>
+<p>La documentación completa de la API, generada con Swagger, proporciona una visión clara y detallada de todos los endpoints disponibles, modelos de datos, y ejemplos prácticos de uso, lo que facilita enormemente la integración</p>
 
 ##  Requisitos Previos
 - Spring Boot
